@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRAGMENT 04</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Special+Elite&display=swap');
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #2b2419;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.03) 0px, transparent 40px),
+      radial-gradient(circle at 70% 60%, rgba(255,255,255,0.03) 0px, transparent 50px),
+      radial-gradient(circle at 50% 85%, rgba(255,255,255,0.02) 0px, transparent 60px);
+    font-family: 'Courier Prime', monospace;
+    color: #d8cdb8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 100px;
+    position: relative;
+  }
+
+  /* textura de cortiça */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: repeating-radial-gradient(circle, rgba(0,0,0,0.08) 0, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 8px);
+    pointer-events: none;
+  }
+
+  h1 {
+    font-family: 'Special Elite', monospace;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #c9bda0;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    z-index: 1;
+  }
+
+  /* o varal */
+  .clothesline-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 950px;
+    z-index: 1;
+  }
+
+  .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #1a1a1a;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+
+  .photos-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding-top: 0;
+  }
+
+  .photo-hang {
+    position: relative;
+    margin-top: -2px;
+    cursor: default;
+    transform: rotate(var(--tilt));
+    transition: transform 0.3s;
+  }
+  .photo-hang:hover {
+    transform: rotate(0deg) scale(1.03);
+  }
+
+  .pin {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #c94a4a, #6b1f1f);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.6);
+    z-index: 2;
+  }
+
+  .string {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    width: 1px;
+    height: 14px;
+    background: #1a1a1a;
+    transform: translateX(-50%);
+  }
+
+  .polaroid {
+    background: #f0ebe0;
+    padding: 10px 10px 30px;
+    box-shadow: 3px 6px 12px rgba(0,0,0,0.5);
+    width: 220px;
+  }
+
+  .polaroid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    filter: sepia(0.3) contrast(1.05) brightness(0.95);
+    display: block;
+  }
+
+  .polaroid .caption {
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: #3a3530;
+    text-align: center;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+
+  /* segredo escondido numa das fotos */
+  .hidden-hotspot {
+    position: absolute;
+    cursor: default;
+    background: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    bottom: 35px;
+    right: 8px;
+    z-index: 3;
+  }
+
+  .note {
+    margin-top: 80px;
+    max-width: 500px;
+    text-align: center;
+    font-size: 13px;
+    color: #9a8f78;
+    line-height: 1.8;
+    z-index: 1;
+  }
+
+  .return {
+    margin-top: 40px;
+    color: #7a6f5c;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #4a4030;
+    padding-bottom: 3px;
+    z-index: 1;
+  }
+  .return:hover { color: #c9bda0; }
+</style>
+</head>
+<body>
+
+<h1>:: Investigation Board — Fragment 04 ::</h1>
+
+<div class="clothesline-wrap">
+  <div class="line"></div>
+  <div class="photos-row">
+
+    <div class="photo-hang" style="--tilt: -3deg;">
+      <div class="string"></div>
+      <div class="pin"></div>
+      <div class="polaroid">
+        <img src="d53de9be5880e5a2da4258875943aaab.jpg" alt="evidence 1">
+        <div class="caption">SUBJECT — 03:14 AM</div>
+      </div>
+    </div>
+
+    <div class="photo-hang" style="--tilt: 2deg;">
+      <div class="string"></div>
+      <div class="pin"></div>
+      <div class="polaroid">
+        <img src="ee405ffbb9799860949d5ebdb1f56cd2.jpg" alt="evidence 2">
+        <div class="caption">SECTOR 9 — NO ID</div>
+        <!-- segredo escondido nessa foto -->
+        <div class="hidden-hotspot" id="secretEvidence"></div>
+      </div>
+    </div>
+
+    <div class="photo-hang" style="--tilt: -1deg;">
+      <div class="string"></div>
+      <div class="pin"></div>
+      <div class="polaroid">
+        <img src="6a24d8bdcb093dfd905021b30eb7fca4.jpg" alt="evidence 3">
+        <div class="caption">LAST SEEN HERE</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="note">
+  4 of 9 fragments recovered.<br>
+  Something in this photo does not match the file.<br>
+  <a href="classified.html" style="color:#9a8f78; text-decoration:underline;">[ view recovered dossier ]</a>
+</p>
+
+<a href="index.html" class="return">&larr; RETURN TO ARCHIVE</a>
+
+<script>
+  document.getElementById("secretEvidence").addEventListener("click", () => {
+    window.location.href = "classified.html";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Central Intelligence Agency</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo-area" id="logoSecret">
+    <img src="cia.png" alt="CIA Logo">
+    <span>Central Intelligence Agency</span>
+  </div>
+  <nav class="menu">
+    <a href="#">TODAY'S CIA</a>
+    <a href="#">CAREERS</a>
+    <a href="#">LEGACY</a>
+    <a href="#">NEWSROOM</a>
+    <a href="#">LIBRARY</a>
+  </nav>
+  <div class="search">
+    <input type="text" placeholder="SEARCH">
+    <button>🔍</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1" />
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>WE ARE THE NATION'S FIRST LINE OF DEFENSE</h1>
+      <p>Our mission and vision >> </p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93" />
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>INFORMATION IS POWER</h1>
+      <p>Intelligence operations worldwide</p>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620" />
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>CLASSIFIED PROGRAMS</h1>
+      <p>Access restricted data systems</p>
+    </div>
+  </div>
+
+  <button class="arrow left" onclick="prevSlide()">‹</button>
+  <button class="arrow right" onclick="nextSlide()">›</button>
+  <div class="dots">
+    <span onclick="setSlide(0)"></span>
+    <span onclick="setSlide(1)"></span>
+    <span onclick="setSlide(2)"></span>
+  </div>
+
+ 
+  <div class="hotspot" id="secret1"></div>
+</section>
+
+<section class="content">
+  <div class="card">
+    <h2>Our Mission</h2>
+    <p>To collect, analyze, and deliver intelligence for national security.</p>
+    
+    <div class="hotspot hotspot-card" id="secret2"></div>
+  </div>
+  <div class="card">
+    <h2>Global Operations</h2>
+    <p>Covert and overt missions across multiple theaters of operation.</p>
+  </div>
+  <div class="card">
+    <h2>Research Division</h2>
+    <p>Advanced studies in anomalous threats and enhanced individuals.</p>
+    
+    <div class="hotspot hotspot-card" id="secret3"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>Central Intelligence Agency. Official site. © All rights reserved.</p>
+  <div class="hotspot hotspot-footer-bar" id="secret4"></div>
+</footer>
+
+
+<script src="script.js"></script>
+</body>
+</html>

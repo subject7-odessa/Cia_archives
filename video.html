@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>:: REDACTED ::</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Special+Elite&display=swap');
+
+  body {
+    margin: 0;
+    background: #050707;
+    color: #c9d4cf;
+    font-family: 'Courier Prime', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* scanlines + ruído */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 2px
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .flicker {
+    animation: flicker 4s infinite;
+  }
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    92% { opacity: 1; }
+    93% { opacity: 0.4; }
+    94% { opacity: 1; }
+    96% { opacity: 0.6; }
+    97% { opacity: 1; }
+  }
+
+  .container {
+    max-width: 850px;
+    width: 90%;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .stamp {
+    display: inline-block;
+    border: 2px solid #b33;
+    color: #d44;
+    font-family: 'Special Elite', monospace;
+    letter-spacing: 6px;
+    padding: 6px 18px;
+    transform: rotate(-3deg);
+    margin-bottom: 25px;
+    font-size: 14px;
+    box-shadow: 0 0 12px rgba(200,40,40,0.4);
+  }
+
+  h1 {
+    font-family: 'Special Elite', monospace;
+    font-size: 42px;
+    color: #d44;
+    text-shadow: 0 0 10px rgba(200,40,40,0.6);
+    margin: 0 0 10px;
+    letter-spacing: 3px;
+  }
+
+  .subject {
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8aa;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  .subject span { color: #d44; }
+
+  .video-frame {
+    position: relative;
+    border: 1px solid #2a3530;
+    background: #000;
+    padding: 6px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8), 0 0 60px rgba(150,0,0,0.08);
+  }
+
+  video {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+    filter: contrast(1.05) saturate(0.85);
+  }
+
+  .timestamp {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    font-size: 11px;
+    color: #c9d4cf;
+    letter-spacing: 1px;
+    z-index: 3;
+    text-shadow: 0 0 4px #000;
+  }
+  .rec {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    font-size: 11px;
+    color: #d44;
+    z-index: 3;
+    text-shadow: 0 0 4px #000;
+  }
+  .rec::before {
+    content: "● ";
+  }
+
+  .warning {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #6b7a73;
+    letter-spacing: 1px;
+    line-height: 1.7;
+  }
+  .warning strong { color: #d44; }
+
+  .return {
+    display: inline-block;
+    margin-top: 35px;
+    color: #4d6b62;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    border-bottom: 1px solid #2a3530;
+    padding-bottom: 3px;
+    transition: color 0.4s;
+  }
+  .return:hover {
+    color: #8fae9f;
+  }
+
+  .footer-code {
+    margin-top: 40px;
+    font-size: 10px;
+    color: #2a3530;
+    letter-spacing: 3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="stamp flicker">TOP SECRET // OMEGA</div>
+  <h1>ACCESS GRANTED</h1>
+  <div class="subject">SUBJECT: <span>UNKNOWN SUPERHUMAN ENTITY</span> // FILE 07-A</div>
+
+  <div class="video-frame">
+    <div class="timestamp">CAM_04 — 03:14:07</div>
+    <div class="rec">REC</div>
+    <video controls autoplay>
+      <source src="cia_archive.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <p class="warning">
+    <strong>THIS FOOTAGE IS CLASSIFIED.</strong><br>
+    Unauthorized distribution constitutes a federal offense under Directive 7.
+  </p>
+
+  <a href="index.html" class="return">&larr; RETURN TO ARCHIVE</a>
+
+  <div class="footer-code">CIA/OMEGA/07-A/RESTRICTED</div>
+</div>
+
+</body>
+</html>
